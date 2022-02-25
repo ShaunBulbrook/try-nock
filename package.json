@@ -1,0 +1,29 @@
+{
+  "name": "anon-finder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest --watch",
+    "test:coverage": "npx jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShaunBulbrook/anon-finder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShaunBulbrook/anon-finder/issues"
+  },
+  "homepage": "https://github.com/ShaunBulbrook/anon-finder#readme",
+  "dependencies": {
+    "jest": "^27.5.1",
+    "typescript": "^4.5.5"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "ts-jest": "^27.1.3"
+  }
+}
