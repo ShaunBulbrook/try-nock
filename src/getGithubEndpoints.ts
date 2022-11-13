@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-import { GithubEndpoints } from "./getGithubEndpoints.test";
+import { GithubEndpoints } from "./GithubEndpoints";
 
 export async function getGithubEndpoints(): Promise<GithubEndpoints> {
   const response = await fetch("https://api.github.com/");

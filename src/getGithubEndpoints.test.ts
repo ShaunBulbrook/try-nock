@@ -1,10 +1,6 @@
 import nock from "nock";
 import { getGithubEndpoints } from "./getGithubEndpoints";
 
-export type GithubEndpoints = {
-  [key: string]: string;
-};
-
 describe("get github api information", () => {
   test("returns list of github endpoints", async () => {
     nock("https://api.github.com/")
