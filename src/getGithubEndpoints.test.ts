@@ -1,15 +1,8 @@
-import fetch from "node-fetch";
 import nock from "nock";
+import { getGithubEndpoints } from "./getGithubEndpoints";
 
-type GithubEndpoints = {
+export type GithubEndpoints = {
   [key: string]: string;
-};
-
-const getGithubEndpoints = async (): Promise<GithubEndpoints> => {
-  const response = await fetch("https://api.github.com/");
-  const data = await response.json();
-
-  return data;
 };
 
 describe("get github api information", () => {
