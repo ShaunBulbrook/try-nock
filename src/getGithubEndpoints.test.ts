@@ -12,6 +12,8 @@ describe("get github api information", () => {
     expect(response).toEqual(
       expect.objectContaining({ myMadeUpKey: "A made up value" })
     );
+
+    nock.cleanAll();
   });
 });
 
@@ -23,6 +25,9 @@ describe("nock - persist", () => {
       .reply(200, { myMadeUpPersistedKey: "A made up persisted value" });
   });
 
+  afterAll(() => {
+    nock.cleanAll();
+  });
   test("returns a list of endpoints 1", async () => {
     const response = await getGithubEndpoints();
     expect(response).toEqual(
@@ -39,5 +44,17 @@ describe("nock - persist", () => {
         myMadeUpPersistedKey: "A made up persisted value",
       })
     );
+  });
+});
+
+describe("nock - recordings", () => {
+  beforeAll(() => {
+    nock.recorder.rec();
+  });
+  afterAll(() => {
+    nock.restore();
+  });
+  test("find out what the response looks like", async () => {
+    await getGithubEndpoints();
   });
 });
