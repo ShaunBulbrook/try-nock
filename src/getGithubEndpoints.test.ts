@@ -18,3 +18,30 @@ describe("get github api information", () => {
     );
   });
 });
+
+describe("nock - persist", () => {
+  beforeAll(() => {
+    nock("https://api.github.com/")
+      .persist()
+      .get("/")
+      .reply(200, { myMadeUpPersistedKey: "A made up persisted value" });
+  });
+
+  test("returns a list of endpoints 1", async () => {
+    const response = await getGithubEndpoints();
+    expect(response).toEqual(
+      expect.objectContaining({
+        myMadeUpPersistedKey: "A made up persisted value",
+      })
+    );
+  });
+
+  test("returns a list of endpoints 2", async () => {
+    const response = await getGithubEndpoints();
+    expect(response).toEqual(
+      expect.objectContaining({
+        myMadeUpPersistedKey: "A made up persisted value",
+      })
+    );
+  });
+});
